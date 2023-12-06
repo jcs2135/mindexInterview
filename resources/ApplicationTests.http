@@ -31,3 +31,18 @@ Content-Type: application/json
 ### Get reports count
 # @no-log
 GET http://localhost:8080/employee/reports/16a596ae-edd3-4847-99fe-c4518e82c86f
+
+### Create Compensation
+# @no-log
+POST http://localhost:8080/compensation
+Content-Type: application/json
+
+{
+  "employee": "16a596ae-edd3-4847-99fe-c4518e82c86f",
+  "salary": 10000000,
+  "effectiveDate": "12/6/2023"
+}
+
+### Get Compensation
+# @no-log
+GET http://localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f
