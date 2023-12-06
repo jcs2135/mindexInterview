@@ -28,6 +28,6 @@ Content-Type: application/json
   "department" : "Engineering"
 }
 
-### Get direct reports
+### Get reports count
 # @no-log
 GET http://localhost:8080/employee/reports/16a596ae-edd3-4847-99fe-c4518e82c86f
