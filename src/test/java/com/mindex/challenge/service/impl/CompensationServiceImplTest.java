@@ -1,7 +1,6 @@
 package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.data.Compensation;
-import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,5 +60,4 @@ public class CompensationServiceImplTest {
         assertEquals(created.getEffectiveDate(), actual.getEffectiveDate());
         assertEquals(created.getSalary(), actual.getSalary());
     }
-
 }
