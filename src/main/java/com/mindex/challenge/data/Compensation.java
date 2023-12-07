@@ -2,8 +2,11 @@ package com.mindex.challenge.data;
 
 public class Compensation {
 
+    // The id of the employee
     private String employee;
+    // The salary of the employee
     private int salary;
+    // The effective date of the employee
     private String effectiveDate;
 
     public String getEmployee() {

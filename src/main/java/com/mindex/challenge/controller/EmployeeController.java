@@ -39,6 +39,11 @@ public class EmployeeController {
         return employeeService.update(employee);
     }
 
+    /**
+     * Gets the report count for a specified employee
+     * @param id the id of the employee to get the report count for
+     * @return the reporting structure of the specified employee
+     */
     @GetMapping("/employee/reports/{id}")
     public ReportingStructure getReports(@PathVariable String id) {
         LOG.debug("Received employee number of reports request for id [{}]", id);
@@ -50,14 +55,23 @@ public class EmployeeController {
 
     }
 
+    /**
+     * Recursively searches an employee for their direct reports
+     * @param id the id of the employee to search
+     * @return the count of employee reports
+     */
     private int recursiveReports(String id) {
+        // Gets the current employee
         Employee curEmployee = employeeService.read(id);
+        // Gets that employees direct reports
         List<Employee> directReports = curEmployee.getDirectReports();
+        // Sets the counter to 0
         int currCount = 0;
-        if (directReports == null) {
+        if (directReports == null) { // If there are no direct reports, return 0
             return 0;
-        } else {
+        } else { // else, search the reports for their own reports
             for (Employee employee : directReports) {
+                // This report counts as one and add any other reports under them
                 currCount += recursiveReports(employee.getEmployeeId()) + 1;
             }
         }
