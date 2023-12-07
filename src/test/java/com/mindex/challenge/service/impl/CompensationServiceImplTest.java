@@ -38,7 +38,7 @@ public class CompensationServiceImplTest {
     }
 
     @Test
-    public void testCreatePass() {
+    public void testCreateRead() {
         Compensation testCompensation = new Compensation();
         testCompensation.setEmployee("16a596ae-edd3-4847-99fe-c4518e82c86f");
         testCompensation.setEffectiveDate("12/6/2023");
@@ -49,6 +49,11 @@ public class CompensationServiceImplTest {
 
         assertNotNull(createdCompensation);
         assertCompensationEquivalence(createdCompensation, testCompensation);
+
+        // Read check
+        Compensation readCompensation = restTemplate.getForEntity(compensationEmployeeUrl, Compensation.class, createdCompensation.getEmployee()).getBody();
+        assertNotNull(readCompensation);
+        assertCompensationEquivalence(readCompensation, testCompensation);
     }
 
     private static void assertCompensationEquivalence(Compensation created, Compensation actual) {
