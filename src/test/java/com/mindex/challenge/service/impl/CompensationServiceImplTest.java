@@ -60,5 +60,4 @@ public class CompensationServiceImplTest {
         assertEquals(created.getEffectiveDate(), actual.getEffectiveDate());
         assertEquals(created.getSalary(), actual.getSalary());
     }
-
 }
